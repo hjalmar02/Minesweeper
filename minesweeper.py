@@ -25,10 +25,9 @@ class Game:
 				if self.grid[xcord][ycord] != '*':
 					self.grid[xcord][ycord] = defs.get_value(self.grid, (xcord, ycord))
 
-		#print(self.grid)
-
 
 	def play(self):
+		"""Initialize a game sequence and generate an array of known cells."""
 		pygame.init()
 		game_over = False
 
