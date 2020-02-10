@@ -3,7 +3,7 @@ import copy
 
 
 def get_value(grid: list, pos: tuple):
-	"""Get number of adjecent mine for square in pos."""
+	"""Get number of adjecent mines for cell in pos."""
 
 	x, y = pos[0], pos[1]  # x- and y-coordinate
 
@@ -40,11 +40,13 @@ def get_value(grid: list, pos: tuple):
 
 
 def load_image(filename: str):
+	"""Load image from assets-directory."""
 
 	return pygame.image.load('assets/' + filename)
 
 
 def draw_grid(grid, display):
+	"""Display grid on pygame-screen."""
 
 	for x in range(15):
 		for y in range(15):
@@ -64,6 +66,7 @@ def draw_grid(grid, display):
 
 
 def get_clicked():
+	"""Get coordinates of clicked cell."""
 
 	pos = pygame.mouse.get_pos()
 
@@ -75,6 +78,7 @@ def get_clicked():
 
 
 def reveal_zeros(grid, solution):
+	"""Reveal all cells surrounding a known cell without adjecent mines."""
 
 	oldgrid = copy.deepcopy(grid)
 
@@ -103,4 +107,5 @@ def reveal_zeros(grid, solution):
 
 
 def playsound(filename):
+	"""Play sound from assets-directory"""
 	pygame.mixer.Sound('assets/' + filename).play()
