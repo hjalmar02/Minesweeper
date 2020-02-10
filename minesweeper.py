@@ -2,6 +2,7 @@ from random import randint
 import sys
 import defs
 import pygame
+import time
 
 class Game:
 
@@ -55,8 +56,12 @@ class Game:
 							known[x][y] = self.grid[x][y]
 							if known[x][y] == '*':
 								defs.draw_grid(known, screen)
+								pygame.display.update()
 								defs.playsound('explosion.wav')
 								game_over = True
+								time.sleep(1)
+								self.generate()
+								self.play()
 								break
 						if event.button == RIGHT:
 							if known[x][y] is None:
